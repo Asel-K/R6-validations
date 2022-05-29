@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product name:</strong>
+  <%= @order.product_name %>
+</p>
+
+<p>
+  <strong>Product Count:</strong>
+  <%= @order.product_count %>
+</p>
+
+<p>
+    <strong>Customer:</strong>
+    <% customer = Customer.find(@order.customer_id)%>
+    <%= customer.full_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
