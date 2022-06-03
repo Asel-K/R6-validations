@@ -5,12 +5,49 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <div class="container pt-4 text-center">
+  <!-- jumbotron goes here -->
+  <div class="jumbotron display-2 text-white jumbo-background"> Hello
+  </div>
+    <% if !flash[:alert].nil? %>
+      <p class="my_alert"><%= flash[:alert] %></p>
+    <% end %>
+
+   <!-- navbar goes here -->
+    <nav class="navbar navbar-expand-sm   navbar-dark bg-primary">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item dropdown dmenu">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+      <i class="fa-regular fa-circle-user"></i>
+      Customers
+      </a>
+      <div class="dropdown-menu sm-menu">
+        <%= link_to 'List Customers', customers_path, class: "dropdown-item" %>
+        <%= link_to 'New Customer', new_customer_path, class: "dropdown-item" %>
+      </div>
+    </li>
+    <li class="nav-item dropdown dmenu">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+      <i class="fa-solid fa-cart-shopping"></i> 
+      Orders
+      </a>
+      <div class="dropdown-menu sm-menu">
+        <%= link_to 'List Orders', orders_path, class: "dropdown-item" %>
+        <%= link_to 'New Order', new_order_path, class: "dropdown-item" %>
+      </div>
+    </li>
+    </ul>
+    </nav>
     <%= yield %>
+    </div>
   </body>
 </html>
