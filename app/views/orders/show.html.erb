@@ -1,20 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Product name:</strong>
-  <%= @order.product_name %>
-</p>
+<div class="card shadow p-3 mb-5 bg-white rounded">
+  <p>
+    <strong>Product name:</strong>
+    <%= @order.product_name %>
+  </p>
 
-<p>
-  <strong>Product Count:</strong>
-  <%= @order.product_count %>
-</p>
+  <p>
+    <strong>Product Count:</strong>
+    <%= @order.product_count %>
+  </p>
 
-<p>
-    <strong>Customer:</strong>
-    <% customer = Customer.find(@order.customer_id)%>
-    <%= customer.full_name %>
-</p>
+  <p>
+      <strong>Customer:</strong>
+      <% customer = Customer.find(@order.customer_id)%>
+      <%= customer.full_name %>
+  </p>
+</div>
 
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
